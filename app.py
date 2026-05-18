@@ -8,9 +8,10 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
+import os
 
-VALID_EMAIL = "rutvik@admin.com"  
-VALID_PASSWORD = "rutvik1234" 
+email = os.getenv("VALID_EMAIL")
+password = os.getenv("VALID_PASSWORD")
 
 NIFTY_100_TICKERS = [
     # Nifty 50 Stocks
@@ -253,7 +254,7 @@ app.layout = html.Div(id="page-content", children=login_layout)
     prevent_initial_call=True
 )
 def authenticate_user(n_clicks, email, password):
-    if email == VALID_EMAIL and password == VALID_PASSWORD:
+    if email == email and password == password:
         return dashboard_layout, dash.no_update
     else:
         error_msg = dbc.Alert("Incorrect Email or Password. Please try again.", color="danger", className="mt-3")
