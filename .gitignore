@@ -1,1 +1,7 @@
 .env
+venv/
+venv2/
+venv3/
+dash_env/
+__pycache__/
+*.pyc
